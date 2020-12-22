@@ -1,0 +1,72 @@
+{
+	"_version": "1.21.0",
+	"sap.app": {
+		"id": "test_task",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+		  "openweathermap": {
+			"uri": "https://thingproxy.freeboard.io/fetch/https://api.openweathermap.org/data/2.5/onecall?appid=3e7d6dd14d9c226935dac9e6d4a2933b",
+			"type": "OData",
+			"settings": {
+			  "odataVersion": "2.0"
+			}
+		  }
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "test_task.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60",
+			"libs": {
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "test_task.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+			},
+	    	"weather": {
+				"dataSource": "openweathermap"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	}
+}
